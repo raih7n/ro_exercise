@@ -23,3 +23,7 @@ The following are used without modification. Credits to their authors. Libraries
 A JSON parser and generator for C++  
 - [spdlog][github.spdlog]   
 Fast C++ logging library
+
+[//]: # (Hyperlink IDs)
+[github.rapidjson]: https://github.com/Tencent/rapidjson
+[github.spdlog]: https://github.com/gabime/spdlog
