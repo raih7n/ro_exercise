@@ -5,6 +5,7 @@
 
 #include <fstream>
 #include <vector>
+#include <set>
 
 #include <spdlog/spdlog.h>
 
@@ -18,6 +19,8 @@ struct conflict_t
 	std::string drug2;
 	std::string severity;
 	std::string description;
+
+	inline bool operator<(const conflict_t& conf) const { return description < conf.description; }
 };
 
 class Medication
@@ -48,7 +51,7 @@ public:
 	/// <param name="medication">Medication that being checked</param>
 	/// <param name="conflict">resulting conflict data</param>
 	/// <returns>True if a conflict is detected</returns>
-	bool checkConflict(std::string medication, std::vector<conflict_t>& conflict);
+	bool checkConflict(std::string medication, std::set<conflict_t>& conflict);
 
 private:
 	std::vector<std::string> m_medications;

@@ -35,14 +35,9 @@ void Medication::testMedications()
     m_medications.erase(std::unique(m_medications.begin(), m_medications.end()), m_medications.end());
 
     // check for conflicts with current medication
-    std::vector<conflict_t> conflicts;
+    std::set<conflict_t> conflicts;
     for (auto medication : m_medications)
         checkConflict(medication, conflicts);
-    
-    // check for duplicates
-    conflicts.erase(std::unique(conflicts.begin(), conflicts.end(), [](conflict_t u1, conflict_t u2) {
-        return u1.description.compare(u2.description) == 0;
-        }), conflicts.end());
 
     if (conflicts.empty()) {
         spdlog::info("No conflicts detected");
@@ -58,7 +53,7 @@ void Medication::testMedications()
     }
 }
 
-bool Medication::checkConflict(std::string medication, std::vector<conflict_t>& conflicts)
+bool Medication::checkConflict(std::string medication, std::set<conflict_t>& conflicts)
 {
 	// no medications, no conflicts
     if (m_medications.empty())
@@ -85,7 +80,7 @@ bool Medication::checkConflict(std::string medication, std::vector<conflict_t>& 
                 conflict.description = elm_it.FindMember("description")->value.GetString();
                 conflict.drug1 = drug1;
                 conflict.drug2 = drug2;
-                conflicts.push_back(conflict);
+                conflicts.insert(conflict);
             }
         }
     }
