@@ -10,7 +10,7 @@ Sample input
 
 Sample output:
 ~~~text
-[warning] 4 conflict(s) detected!
+[warning] 2 conflict(s) detected!
 [warning] sildenafil will have a moderate interaction with clobazam. The metabolism of Sildenafil can be decreased when combined with Clobazam.
 [warning] valaciclovir will have a moderate interaction with ipecac. Valaciclovir may decrease the excretion rate of Ipecac which could result in a higher serum level.
 ~~~
