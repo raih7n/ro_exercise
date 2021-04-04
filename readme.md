@@ -2,7 +2,7 @@
 
 ### Technical interview exercise/project for Ro
 
-given an input of medications, this program will detected any interactions between as determined by interactions.json
+given an input of medications, this program will detect any interactions between as determined by interactions.json
 
 Sample input
 
